@@ -59,7 +59,7 @@ class Dice
     f3 = (int)(Math.random()*300);
     fill(f1, f2, f3);
     rect(myX, myY, 100, 100, 70);
-    fill(255,255,255);    
+    fill(0);    
     noStroke();
     if (dice == 1)
     {
