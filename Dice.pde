@@ -14,7 +14,6 @@ void draw()
 {
 
   background(78, 164, 186);
-  int sum = 0;
   for (int y = 30; y <= 450; y = y + 148)
       {
           for (int x = 30; x < 650; x+= 148)
