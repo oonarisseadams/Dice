@@ -1,11 +1,13 @@
-Dice newDice;
-int counter;
+int total = 0;
 
 void setup()
 {
-  size(450,450);
+  size(470,470);
   background(177, 209, 230);
   noLoop();
+  noStroke();
+  textAlign(CENTER, CENTER);
+  textSize(18);
 }
 
 void draw()
@@ -14,16 +16,18 @@ void draw()
   background(78, 164, 186);
   int sum = 0;
   for (int y = 30; y <= 450; y = y + 148)
-  {
-    for (int x = 30; x < 650; x+= 148)
-    {
-      newDice = new Dice(x,y);
-      newDice.show();
-      counter += newDice.dice;
-      sum += newDice.dice;
-    }
-  }
-
+      {
+          for (int x = 30; x < 650; x+= 148)
+          {
+            Dice masa = new Dice(x,y);
+            masa.show();
+            total += masa.roll();
+          }
+      }
+    fill(255);
+    text("Total roll: ", 150, 450);
+    text(total, 230, 450);
+    total = 0;
 }
 
 void mousePressed()
@@ -33,7 +37,7 @@ void mousePressed()
 
 class Dice 
 {
-  int myX, myY, die, f1, f2, f3, s1, s2, s3;
+  int dice,myX, myY, die, f1, f2, f3, s1, s2, s3;
 
   Dice(int x, int y) //constructor
   {
@@ -42,9 +46,10 @@ class Dice
     roll();
   }
 
-  void roll()
+  int roll()
   {
-    dice = (int)((Math.random()*6)+1);
+    dice = (int)(Math.random()*6)+1;
+    return dice;
   }
 
   void show()
